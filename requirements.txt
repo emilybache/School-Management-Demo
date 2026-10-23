@@ -14,4 +14,5 @@ platformdirs==4.13.5
 pycodestyle==2.15.0
 pyflakes==4.0.3
 pytokens==0.4.1
+selenium==4.51.0
 sqlparse==0.6.0
