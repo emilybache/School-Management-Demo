@@ -1,11 +1,21 @@
-# Django-School-Management-System
+# School-Management-System
 
 This app is meant to be used by school manager to manage their school records:
-student data
-staff
-results and
-finances.
+* student data
+* staff
+* results
+* finances
 
+It runs Django Framework in back-end and HTML, CSS in front-end. It has a interactive dashboard built in for admin using which admin can add student, manage fees , manage employees, manage results .
+
+## Features Of This Project
+* Academy Management - Manage Session , Terms, Subjects, Classes.
+* Student Management -  Add Student , Bulk Add Student,  Fees Details Check , View Profile.
+* Employee Management - Add Employee, Edit Employee, View Employee.
+* Fees Management -  Add Fees , Delete Fees, Pay fee , Fees Structure , customize fee Structure.
+* Result Management -  Add Result , Edit Result , Manage Result.
+
+## Development status
 It currently doesn't allow students/staff to login.
 Solely, it's expected to be used on a single machine or online for managers only.
 
