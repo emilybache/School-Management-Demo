@@ -77,3 +77,6 @@ target/
 venv
 
 .idea
+
+# Local SQLite database (created by `python manage.py migrate`)
+db.sqlite3
