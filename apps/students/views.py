@@ -16,6 +16,7 @@ from .models import Student, StudentBulkUpload
 class StudentListView(LoginRequiredMixin, ListView):
     model = Student
     template_name = "students/student_list.html"
+    context_object_name = "students"
 
 
 class StudentDetailView(LoginRequiredMixin, DetailView):

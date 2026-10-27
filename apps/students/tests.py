@@ -1,9 +1,33 @@
 import time
 
+from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.test import TestCase
+from django.urls import reverse
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+
+from .models import Student
+
+
+class StudentListViewTest(TestCase):
+    def setUp(self):
+        user = get_user_model().objects.create_user("teacher", password="secret")
+        self.client.force_login(user)
+
+    def test_lists_all_students(self):
+        Student.objects.create(registration_number="1", surname="Doe", firstname="John")
+        Student.objects.create(registration_number="2", surname="Roe", firstname="Richard")
+        Student.objects.create(registration_number="3", surname="Smith", firstname="James")
+
+        response = self.client.get(reverse("student-list"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context["students"]), 3)
+        self.assertContains(response, "Doe John")
+        self.assertContains(response, "Roe Richard")
+        self.assertContains(response, "Smith James")
 
 
 class StudentsUITest(StaticLiveServerTestCase):
