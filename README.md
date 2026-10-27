@@ -28,10 +28,10 @@ password: admin123
 Run
 
 ```python
-pip install -r requirements.txt #install required packages
-python manage.py migrate # run first migration
-python manage.py seed_demo_data # optional: load demo students, results and an invoice
-python manage.py runserver # run the server
+uv sync # install required packages
+uv run python manage.py migrate # run first migration
+uv run python manage.py seed_demo_data # optional: load demo students, results and an invoice
+uv run python manage.py runserver # run the server
 ```
 Then locate http://172.0.0.1:8000
 
@@ -59,4 +59,10 @@ black .
 ## Test
 ```base
 python manage.py test
+```
+
+## Test Code Analysis
+Ruff checks the test code using the lint rules from the Zulip project (configured in `pyproject.toml`):
+```bash
+ruff check --statistics
 ```
